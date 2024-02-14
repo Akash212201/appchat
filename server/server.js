@@ -9,22 +9,10 @@ const PORT = 4500;
 
 const users = [{}];
 app.use(cors())
-// ---------------------         Deployment--------------
-const __dirname1 = path.resolve()
-if('production'){
-    app.use(express.static(path.join(__dirname1, "/client/build")))
 
-    app.get('*', (req,resp )=> {
-        resp.sendFile(path.resolve(__dirname1, "client", "build", "index.html"))
-    })
-}
-else{
-    app.get("/", (req, res) => {
+app.get("/", (req, res) => {
         res.send(`<h1>Server is Working</h1>`)
     })
-}
-
-//---------------------- End of Deployment code ------------------
 
 
 const server = createServer(app);
