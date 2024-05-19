@@ -1,8 +1,8 @@
-const express=require('express')
-const { Server } =require('socket.io')
+const express = require('express')
+const { Server } = require('socket.io')
 const { createServer } = require('node:http')
 const cors = require('cors')
-const path=require('path')
+const path = require('path')
 
 const app = express();
 const PORT = 4500;
@@ -11,13 +11,13 @@ const users = [{}];
 app.use(cors())
 
 app.get("/", (req, res) => {
-        res.send(`<h1>Server is Working</h1>`)
-    })
+    res.send(`<h1>Server is Working</h1>`)
+})
 
 
 const server = createServer(app);
 
-const io= new Server(server, {
+const io = new Server(server, {
     cors: {
         origin: "*",
         methods: ['GET', 'POST'],
